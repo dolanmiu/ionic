@@ -6,32 +6,37 @@ import { IonicApp, IonicModule } from '../../../..';
   templateUrl: 'main.html'
 })
 export class E2EPage {
-  items = [];
-  images = [
-    'bandit.jpg',
-    'batmobile.jpg',
-    'blues-brothers.jpg',
-    'bueller.jpg',
-    'delorean.jpg',
-    'eleanor.jpg',
-    'general-lee.jpg',
-    'ghostbusters.jpg',
-    'knight-rider.jpg',
-    'mirth-mobile.jpg'
-  ];
+  items: {avatar: string, thumbnail: string, id: number}[] = [];
 
   constructor() {
-    for (var i = 0; i < 1000; i++) {
-      this.items.push(i);
+    for (var i = 0; i < 100; i++) {
+      this.items.push({
+        id: i,
+        avatar: getRandomImg(),
+        thumbnail: getRandomImg()
+      });
     }
   }
 
-  getRandomThumbnail(): string {
-    let imgString = this.images[Math.floor(Math.random() * this.images.length)];
+}
 
-    return 'http://localhost:8000/dist/e2e/img/img/' + imgString;
-  }
+const images = [
+  'bandit.jpg',
+  'batmobile.jpg',
+  'blues-brothers.jpg',
+  'bueller.jpg',
+  'delorean.jpg',
+  'eleanor.jpg',
+  'general-lee.jpg',
+  'ghostbusters.jpg',
+  'knight-rider.jpg',
+  'mirth-mobile.jpg'
+];
 
+function getRandomImg(): string {
+  let imgString = images[Math.floor(Math.random() * images.length)];
+  let src = 'http://localhost:8000/dist/e2e/img/img/' + imgString;
+  return src;
 }
 
 

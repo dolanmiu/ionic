@@ -11,14 +11,14 @@
 
     <ion-item *ngFor="let item of items">
 
-      <ion-thumbnail item-left>
-        <ion-img [src]="getRandomThumbnail()"></ion-img>
-      </ion-thumbnail>
+      <ion-avatar item-left>
+        <ion-img [src]="item.avatar"></ion-img>
+      </ion-avatar>
 
-      Thumbnail Item {{ item }}
+      Item: {{ item.id }}
 
       <ion-thumbnail item-right>
-        <ion-img [src]="getRandomThumbnail()"></ion-img>
+        <ion-img [src]="item.thumbnail"></ion-img>
       </ion-thumbnail>
 
     </ion-item>
